@@ -1,0 +1,141 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    min-width: 400px; /* Minimum width */
+    max-width: 500px;
+  }
+  
+  .container {
+    padding: 20px;
+  }
+  
+  h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  h2 {
+      color: #555;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
+  }
+  
+  .section {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  input[type="text"],
+  input[type="password"],
+  textarea,
+  select {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;  /* Include padding and border in the element's total width and height */
+    font-size: 14px;
+  }
+  .password-input {
+      position: relative;
+      display: flex;
+      align-items: center;
+  }
+  .password-input input{
+    width: calc(100% - 40px);
+  }
+  .password-input button{
+    position: absolute;
+    right: 5px;
+    background-color: transparent;
+    border: none;
+  }
+  textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 80px;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Default button color */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+  }
+  .btn i {
+    margin-right: 5px;
+  }
+  
+  .btn.primary {
+    background-color: #4CAF50;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+  }
+  
+  .btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .status-message {
+    margin-top: 10px;
+    color: #333;
+    font-size: 14px;
+  }
+  
+  .status-message.error {
+    color: #d9534f;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  .recording-options label {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 15px;
+    cursor: pointer;
+  }
+  
+  .recording-options input[type="radio"] {
+    margin-right: 5px;
+  }
+  /* Style for transcript and AI output */
+  .transcript-container, .ai-output-container {
+    margin-top: 15px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .transcript, .ai-output {
+    white-space: pre-wrap; /* Preserve line breaks and spaces */
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+  }
