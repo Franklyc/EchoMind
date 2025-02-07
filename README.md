@@ -23,18 +23,33 @@ EchoMind is a Chrome extension that allows you to record audio from any webpage,
 
 ## Installation
 
-1.  **Clone the Repository:**
+There are two ways to install EchoMind:
 
-    ```bash
-    git clone https://github.com/Franklyc/EchoMind.git
-    ```
+**1. From GitHub Releases (Recommended for most users):**
 
-2.  **Load the Extension in Chrome:**
+   *   Go to the [Releases page](https://github.com/Franklyc/EchoMind/releases) for this repository.
+   *   Download the latest `EchoMind-vX.X.zip` file (where `X.X` is the version number).
+   *   Open Chrome and navigate to `chrome://extensions`.
+   *   Enable "Developer mode" in the top right corner (if it's not already enabled).
+   *   Drag and drop the downloaded `EchoMind-vX.X.zip` file onto the `chrome://extensions` page. Chrome will install the extension.
+   * If Developer mode is off, you may need to unpack the zip file first, and then "Load Unpacked".
 
-    *   Open Chrome and navigate to `chrome://extensions`.
-    *   Enable "Developer mode" in the top right corner.
-    *   Click "Load unpacked".
-    *   Select the `EchoMind` directory you just cloned.
+**2. From Source (For developers or advanced users):**
+
+   *   **Clone the Repository:**
+
+       ```bash
+       git clone https://github.com/Franklyc/EchoMind.git
+       ```
+
+   *   **Load the Extension in Chrome:**
+
+       *   Open Chrome and navigate to `chrome://extensions`.
+       *   Enable "Developer mode" in the top right corner.
+       *   Click "Load unpacked".
+       *   Select the `EchoMind` directory you just cloned.
+
+**After either installation method:**
 
 3.  **Obtain API Keys:**
 
