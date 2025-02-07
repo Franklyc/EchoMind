@@ -55,6 +55,14 @@
         <h2>AI Processing</h2>
 
         <div class="input-group">
+          <label for="modelSelect">AI Model:</label>
+          <select id="modelSelect">
+            <option value="cerebras">cerebras/llama-3.3-70b</option>
+            <option value="gemini">google/gemini-2.0-flash-exp</option>
+          </select>
+        </div>
+
+        <div class="input-group">
           <label for="taskType">Processing Option:</label>
           <select id="taskType">
             <option value="summary">Summarize</option>
