@@ -1,6 +1,8 @@
 # EchoMind 🧠
 
-[![Powered by Groq](https://groq.com/wp-content/uploads/2024/03/PBG-mark1-color.svg)](https://groq.com)
+<a href="https://groq.com" target="_blank" rel="noopener noreferrer">
+    <img src="https://groq.com/wp-content/uploads/2024/03/PBG-mark1-color.svg" alt="Powered by Groq" width="100">
+</a>
 
 EchoMind is a Chrome extension that allows you to record audio from any webpage, transcribe it using Groq's blazing-fast implementation of the Whisper model, and then process the transcribed text using powerful LLMs hosted by Cerebras. It's your personal AI assistant for the web!
 
