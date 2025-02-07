@@ -1,141 +1,206 @@
+/* 基础样式 */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-    min-width: 400px; /* Minimum width */
+    min-width: 400px;
     max-width: 500px;
-  }
-  
-  .container {
+}
+
+.container {
+    padding: 0;
+}
+
+/* 标题栏样式 */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+}
+
+.header h1 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.header-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* 主内容区 */
+.content {
     padding: 20px;
-  }
-  
-  h1 {
-    color: #333;
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  h2 {
-      color: #555;
-      margin-bottom: 15px;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 5px;
-  }
-  
-  .section {
+}
+
+/* 其他已有样式（录音、表单、按钮等） */
+h2 {
+    color: #555;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.section {
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin-bottom: 20px;
-  }
-  
-  .input-group {
+}
+
+.input-group {
     margin-bottom: 15px;
-  }
-  
-  label {
+}
+
+label {
     display: block;
     margin-bottom: 5px;
     color: #555;
-  }
-  
-  input[type="text"],
-  input[type="password"],
-  textarea,
-  select {
+}
+
+input[type="text"],
+input[type="password"],
+textarea,
+select {
     width: 95%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     margin-bottom: 10px;
-    box-sizing: border-box;  /* Include padding and border in the element's total width and height */
+    box-sizing: border-box;
     font-size: 14px;
-  }
-  .password-input {
-      position: relative;
-      display: flex;
-      align-items: center;
-  }
-  .password-input input{
+}
+
+.password-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-input input {
     width: calc(100% - 40px);
-  }
-  .password-input button{
+}
+
+.password-input button {
     position: absolute;
     right: 5px;
     background-color: transparent;
     border: none;
-  }
-  textarea {
-    resize: vertical; /* Allow vertical resizing */
+}
+
+textarea {
+    resize: vertical;
     min-height: 80px;
-  }
-  
-  .btn {
+}
+
+.btn {
     display: inline-block;
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
-    background-color: #007bff; /* Default button color */
+    background-color: #007bff;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-size: 16px;
-  }
-  .btn i {
+}
+
+.btn i {
     margin-right: 5px;
-  }
-  
-  .btn.primary {
+}
+
+.btn.primary {
     background-color: #4CAF50;
-  }
-  
-  .btn:hover {
-    background-color: #0056b3; /* Darker shade on hover */
-  }
-  
-  .btn:disabled {
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.btn:disabled {
     background-color: #ccc;
     cursor: not-allowed;
-  }
-  
-  .status-message {
+}
+
+.status-message {
     margin-top: 10px;
     color: #333;
     font-size: 14px;
-  }
-  
-  .status-message.error {
+}
+
+.status-message.error {
     color: #d9534f;
-  }
-  
-  .hidden {
+}
+
+.hidden {
     display: none;
-  }
-  .recording-options label {
+}
+
+.recording-options label {
     display: inline-flex;
     align-items: center;
     margin-right: 15px;
     cursor: pointer;
-  }
-  
-  .recording-options input[type="radio"] {
+}
+
+.recording-options input[type="radio"] {
     margin-right: 5px;
-  }
-  /* Style for transcript and AI output */
-  .transcript-container, .ai-output-container {
+}
+
+.transcript-container, .ai-output-container {
     margin-top: 15px;
     border: 1px solid #ddd;
     padding: 10px;
     border-radius: 5px;
     background-color: #f9f9f9;
-  }
-  
-  .transcript, .ai-output {
-    white-space: pre-wrap; /* Preserve line breaks and spaces */
+}
+
+.transcript, .ai-output {
+    white-space: pre-wrap;
     font-size: 14px;
     color: #333;
     line-height: 1.5;
-  }
+}
+
+/* 最小化状态样式 */
+#popup-container.minimized {
+    width: 60px;
+    height: 60px;
+    padding: 5px;
+    position: relative;
+}
+
+#popup-container.minimized .header,
+#popup-container.minimized .content {
+    display: none;
+}
+
+#minimizedIcon {
+    display: none;
+    text-align: center;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#popup-container.minimized #minimizedIcon {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    line-height: 60px;
+}

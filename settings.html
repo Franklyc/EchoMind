@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EchoMind Settings</title>
+  <link rel="stylesheet" href="popup.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="settings.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <!-- 标题栏：包含返回按钮 -->
+    <div class="header">
+      <button id="backBtn" class="icon-btn" title="Back"><i class="fas fa-arrow-left"></i></button>
+      <h1>Settings</h1>
+    </div>
+    <!-- API Keys 设置部分 -->
+    <section class="section api-keys">
+      <h2>API Keys</h2>
+      <div class="input-group">
+        <label for="groqApiKey">Groq API Key:</label>
+        <div class="password-input">
+          <input type="password" id="groqApiKey" placeholder="Enter Groq API Key">
+          <button type="button" class="toggle-password" data-target="groqApiKey"><i class="fas fa-eye"></i></button>
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="cerebrasApiKey">Cerebras API Key:</label>
+        <div class="password-input">
+          <input type="password" id="cerebrasApiKey" placeholder="Enter Cerebras API Key">
+          <button type="button" class="toggle-password" data-target="cerebrasApiKey"><i class="fas fa-eye"></i></button>
+        </div>
+      </div>
+      <button id="saveApiKeys" class="btn primary"><i class="fas fa-save"></i> Save Keys</button>
+      <p id="apiKeyStatus" class="status-message"></p>
+    </section>
+  </div>
+</body>
+</html>

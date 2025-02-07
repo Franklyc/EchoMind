@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Web Audio Transcriber</title>
+  <title>EchoMind</title>
   <link rel="stylesheet" href="popup.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
@@ -11,65 +11,55 @@
   <script src="popup.js" defer></script>
 </head>
 <body>
-  <div class="container">
-    <h1>EchoMind</h1>
-
-    <!-- API Keys 部分 -->
-    <section class="section api-keys">
-      <h2>API Keys</h2>
-      <div class="input-group">
-        <label for="groqApiKey">Groq API Key:</label>
-        <div class="password-input">
-          <input type="password" id="groqApiKey" placeholder="Enter Groq API Key">
-          <button type="button" class="toggle-password" data-target="groqApiKey"><i class="fas fa-eye"></i></button>
+  <div id="popup-container" class="container">
+    <!-- 标题栏：显示扩展名称和两个图标按钮 -->
+    <div class="header">
+      <h1>EchoMind</h1>
+      <div class="header-icons">
+         <button id="minimizeBtn" class="icon-btn" title="Minimize"><i class="fas fa-window-minimize"></i></button>
+         <button id="settingsBtn" class="icon-btn" title="Settings"><i class="fas fa-cog"></i></button>
+      </div>
+    </div>
+    <!-- 主内容区 -->
+    <div class="content">
+      <!-- 录音部分 -->
+      <section class="section recording">
+        <h2>Recording</h2>
+        <button id="start" class="btn primary"><i class="fas fa-play"></i> Start Recording</button>
+        <button id="stop" class="btn" disabled><i class="fas fa-stop"></i> Stop</button>
+        <p id="recordingStatus" class="status-message"></p>
+        <div class="transcript-container">
+          <label><strong>Transcript:</strong></label>
+          <p id="result" class="transcript">Waiting for transcription...</p>
         </div>
-      </div>
-      <div class="input-group">
-        <label for="cerebrasApiKey">Cerebras API Key:</label>
-        <div class="password-input">
-          <input type="password" id="cerebrasApiKey" placeholder="Enter Cerebras API Key">
-          <button type="button" class="toggle-password" data-target="cerebrasApiKey"><i class="fas fa-eye"></i></button>
+      </section>
+      <!-- AI Processing 部分 -->
+      <section class="section processing">
+        <h2>AI Processing</h2>
+        <div class="input-group">
+          <label for="taskType">Processing Option:</label>
+          <select id="taskType">
+            <option value="summary">Summarize</option>
+            <option value="qa">Answer Questions</option>
+            <option value="custom">Custom Prompt</option>
+          </select>
         </div>
-      </div>
-      <button id="saveApiKeys" class="btn primary"><i class="fas fa-save"></i> Save Keys</button>
-      <p id="apiKeyStatus" class="status-message"></p>
-    </section>
-
-    <!-- 录音部分 -->
-    <section class="section recording">
-      <h2>Recording</h2>
-      <!-- 直接只有开始和停止按钮 -->
-      <button id="start" class="btn primary"><i class="fas fa-play"></i> Start Recording</button>
-      <button id="stop" class="btn" disabled><i class="fas fa-stop"></i> Stop</button>
-      <p id="recordingStatus" class="status-message"></p>
-      <div class="transcript-container">
-        <label><strong>Transcript:</strong></label>
-        <p id="result" class="transcript">Waiting for transcription...</p>
-      </div>
-    </section>
-
-    <!-- AI Processing 部分 -->
-    <section class="section processing">
-      <h2>AI Processing</h2>
-      <div class="input-group">
-        <label for="taskType">Processing Option:</label>
-        <select id="taskType">
-          <option value="summary">Summarize</option>
-          <option value="qa">Answer Questions</option>
-          <option value="custom">Custom Prompt</option>
-        </select>
-      </div>
-      <div class="input-group custom-prompt-group hidden">
-        <label for="customPrompt">Custom Prompt:</label>
-        <textarea id="customPrompt" placeholder="Enter custom instructions"></textarea>
-      </div>
-      <button id="process" class="btn primary"><i class="fas fa-microchip"></i> Process with AI</button>
-      <p id="processStatus" class="status-message"></p>
-      <div class="ai-output-container">
-        <label><strong>AI Output:</strong></label>
-        <p id="aiResult" class="ai-output">Waiting for response...</p>
-      </div>
-    </section>
+        <div class="input-group custom-prompt-group hidden">
+          <label for="customPrompt">Custom Prompt:</label>
+          <textarea id="customPrompt" placeholder="Enter custom instructions"></textarea>
+        </div>
+        <button id="process" class="btn primary"><i class="fas fa-microchip"></i> Process with AI</button>
+        <p id="processStatus" class="status-message"></p>
+        <div class="ai-output-container">
+          <label><strong>AI Output:</strong></label>
+          <p id="aiResult" class="ai-output">Waiting for response...</p>
+        </div>
+      </section>
+    </div>
+    <!-- 当处于最小化状态时，仅显示该小图标 -->
+    <div id="minimizedIcon" class="minimized-icon hidden">
+      <i class="fas fa-microphone"></i>
+    </div>
   </div>
 </body>
 </html>
