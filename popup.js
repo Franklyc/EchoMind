@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // === 新增：最小化及设置按钮逻辑 ===
+    // === Minimized and Settings Logic ===
     const popupContainer = document.getElementById("popup-container");
     const minimizeBtn = document.getElementById("minimizeBtn");
     const settingsBtn = document.getElementById("settingsBtn");
@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     settingsBtn.addEventListener("click", () => {
-      // 调用 chrome.runtime.openOptionsPage 打开设置页
       if (chrome.runtime.openOptionsPage) {
         chrome.runtime.openOptionsPage();
       } else {
@@ -22,14 +21,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // === 以下为原有逻辑（录音、转录、AI 处理等） ===
-
+    // === UI Update and Status Functions ===
     const updateUI = (isRecording) => {
       startBtn.disabled = isRecording;
       stopBtn.disabled = !isRecording;
       startBtn.innerHTML = isRecording
         ? '<i class="fas fa-spinner fa-spin"></i> Recording...'
-        : '<i class="fas fa-play"></i> Start Recording';
+        : '<i class="fas fa-play"></i> Start'; // Removed extra text
       if (isRecording) {
         stopBtn.innerHTML = '<i class="fas fa-stop"></i> Stop';
       }
@@ -40,23 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
       element.classList.toggle('error', isError);
     };
 
-    const togglePasswordVisibility = (targetId, event) => {
-      const input = document.getElementById(targetId);
-      const icon = event.currentTarget.querySelector('i');
-      if (input.type === 'password') {
-        input.type = 'text';
-        icon.classList.remove('fa-eye');
-        icon.classList.add('fa-eye-slash');
-      } else {
-        input.type = 'password';
-        icon.classList.remove('fa-eye-slash');
-        icon.classList.add('fa-eye');
-      }
-    };
 
-    // （原 API Keys 相关代码已移至 settings 页面）
-
-    // === 自定义提示逻辑 ===
+    // === Custom Prompt Logic ===
     const taskTypeSelect = document.getElementById("taskType");
     const customPromptTextarea = document.getElementById("customPrompt");
     const customPromptGroup = document.querySelector(".custom-prompt-group");
@@ -70,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // === 录音相关代码 ===
+    // === Recording Logic ===
     let mediaRecorder;
     let audioChunks = [];
     let currentStream = null;
@@ -129,10 +112,8 @@ document.addEventListener('DOMContentLoaded', () => {
               formData.append("model", "whisper-large-v3-turbo");
               formData.append("response_format", "verbose_json");
 
-              // 新增：获取转录语言选择，并附加到 FormData
               const languageSelect = document.getElementById("transcriptionLanguage");
               const selectedLanguage = languageSelect.value;
-              // 如果不是 auto，则添加 language 参数
               if (selectedLanguage !== "auto") {
                 formData.append("language", selectedLanguage);
               }
@@ -197,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // === AI Processing 相关 ===
+    // === AI Processing Logic ===
     const processBtn = document.getElementById("process");
     const processStatus = document.getElementById("processStatus");
     const aiResultParagraph = document.getElementById("aiResult");

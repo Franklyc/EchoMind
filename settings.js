@@ -1,3 +1,4 @@
+// settings.js (remains the same, as it's primarily logic)
 document.addEventListener('DOMContentLoaded', () => {
     const backBtn = document.getElementById("backBtn");
     backBtn.addEventListener("click", () => {
