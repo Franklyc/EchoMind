@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "EchoMind - Web Audio Transcriber",
-    "version": "1.4",
+    "version": "1.0",
     "description": "Record web audio, transcribe it, and process it using AI.",
     "permissions": ["activeTab", "storage", "tabCapture"],
     "host_permissions": [
