@@ -25,6 +25,23 @@
       <!-- 录音部分 -->
       <section class="section recording">
         <h2>Recording</h2>
+
+        <!-- 新增：转录语言选择 -->
+        <div class="input-group">
+          <label for="transcriptionLanguage">Language:</label>
+          <select id="transcriptionLanguage">
+            <option value="auto">Auto</option>
+            <option value="zh">中文</option>
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="de">Deutsch</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+            <option value="ru">Русский</option>
+          </select>
+        </div>
+
         <button id="start" class="btn primary"><i class="fas fa-play"></i> Start Recording</button>
         <button id="stop" class="btn" disabled><i class="fas fa-stop"></i> Stop</button>
         <p id="recordingStatus" class="status-message"></p>

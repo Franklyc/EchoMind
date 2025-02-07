@@ -129,6 +129,14 @@ document.addEventListener('DOMContentLoaded', () => {
               formData.append("model", "whisper-large-v3-turbo");
               formData.append("response_format", "verbose_json");
 
+              // 新增：获取转录语言选择，并附加到 FormData
+              const languageSelect = document.getElementById("transcriptionLanguage");
+              const selectedLanguage = languageSelect.value;
+              // 如果不是 auto，则添加 language 参数
+              if (selectedLanguage !== "auto") {
+                formData.append("language", selectedLanguage);
+              }
+
               chrome.storage.local.get("groqApiKey", async (data) => {
                 const groqApiKey = data.groqApiKey;
                 if (!groqApiKey) {
