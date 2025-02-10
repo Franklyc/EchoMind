@@ -21,11 +21,9 @@
 
     <!-- Content -->
     <div class="content">
-      <!-- Recording Section -->
-      <section class="section recording">
-        <h2>Recording</h2>
-
-        <div class="input-group">
+      <!-- Recording Controls -->
+      <div class="control-panel">
+        <div class="input-group compact">
           <label for="transcriptionLanguage">Language:</label>
           <select id="transcriptionLanguage">
             <option value="auto">Auto</option>
@@ -40,12 +38,17 @@
           </select>
         </div>
 
-        <button id="start" class="btn primary"><i class="fas fa-play"></i> Start</button>
-        <button id="stop" class="btn" disabled><i class="fas fa-stop"></i> Stop</button>
+        <div class="button-group">
+          <button id="start" class="btn primary"><i class="fas fa-play"></i> Start</button>
+          <button id="stop" class="btn" disabled><i class="fas fa-stop"></i> Stop</button>
+        </div>
         <p id="recordingStatus" class="status-message"></p>
+      </div>
 
+      <!-- Recording Section -->
+      <section class="section recording">
+        <h2>Transcript</h2>
         <div class="transcript-container">
-          <label><strong>Transcript:</strong></label>
           <p id="result" class="transcript">Waiting for transcription...</p>
         </div>
       </section>
@@ -53,22 +56,24 @@
       <!-- AI Processing Section -->
       <section class="section processing">
         <h2>AI Processing</h2>
-
-        <div class="input-group">
-          <label for="modelSelect">AI Model:</label>
-          <select id="modelSelect">
-            <option value="cerebras">cerebras/llama-3.3-70b</option>
-            <option value="gemini">google/gemini-2.0-flash-exp</option>
-          </select>
-        </div>
-
-        <div class="input-group">
-          <label for="taskType">Processing Option:</label>
-          <select id="taskType">
-            <option value="summary">Summarize</option>
-            <option value="qa">Answer Questions</option>
-            <option value="custom">Custom Prompt</option>
-          </select>
+        <div class="processing-controls">
+          <div class="input-row">
+            <div class="input-group">
+              <label for="modelSelect">Model:</label>
+              <select id="modelSelect">
+                <option value="cerebras">cerebras/llama-3.3-70b</option>
+                <option value="gemini">google/gemini-2.0-flash-exp</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label for="taskType">Task:</label>
+              <select id="taskType">
+                <option value="summary">Summarize</option>
+                <option value="qa">Answer Questions</option>
+                <option value="custom">Custom Prompt</option>
+              </select>
+            </div>
+          </div>
         </div>
 
         <div class="input-group custom-prompt-group hidden">
@@ -76,11 +81,10 @@
           <textarea id="customPrompt" placeholder="Enter custom instructions"></textarea>
         </div>
 
-        <button id="process" class="btn primary"><i class="fas fa-microchip"></i> Process</button>
+        <button id="process" class="btn primary full-width"><i class="fas fa-microchip"></i> Process</button>
         <p id="processStatus" class="status-message"></p>
 
         <div class="ai-output-container">
-          <label><strong>AI Output:</strong></label>
           <p id="aiResult" class="ai-output">Waiting for response...</p>
         </div>
       </section>
