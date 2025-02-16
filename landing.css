@@ -577,4 +577,8 @@ footer {
     .footer-credit {
         text-align: center;
     }
+
+    .hero {
+        padding-top: 180px; /* Adjust as needed */
+    }
 }
